@@ -35,8 +35,8 @@ Parameter| Value
 Input Voltage| 247 V AC RMS
 Input Frequency| 50 Hz
 Output Voltage| 12 V DC
-Output Current| 1.5 A
-Output Power| 18 W
+Output Current| 2 A
+Output Power| 24 W
 Simulation Platform| LTSpice
 
 ---
@@ -599,14 +599,27 @@ Where:
 
 ---
 
-Design Parameters
+Design Approach
 
-Parameter| Value
-Input Voltage (V_{in})| 11.4 V
-Duty Cycle (D)| 0.073
-Inductor Ripple Current (\Delta I_L)| 0.6 A
-Switching Frequency (f_s)| 100 kHz
+The minimum inductance requirement was estimated using the standard boost converter inductor sizing equation:
 
+[
+L = V_in×D/∆I_L×f_s
+]
+
+Using the expected operating conditions, the calculated inductance was approximately:
+
+[
+L = 13.8 uH
+]
+
+A standard value of 56 µH was selected to provide additional ripple current reduction and improve converter stability.
+
+The PWM duty cycle was not fixed solely from theoretical calculations. Instead, LTSpice simulations were performed and the duty cycle was adjusted iteratively until the desired output voltage and load performance were achieved.
+
+This approach allowed verification of converter behavior under realistic operating conditions, including component non-idealities, voltage drops, and load effects.
+
+The final duty cycle used in the simulation was obtained through tuning and validation of the converter output rather than direct analytical calculation alone.
 ---
 
 Inductance Calculation
@@ -614,17 +627,17 @@ Inductance Calculation
 Substituting the design parameters:
 
 [
-L = \frac{11.4 \times 0.073}{0.6 \times 100000}
+L = 11.4×0.073/(0.6×100000)
 ]
 
 [
-L = 13.8\mu H
+L = 13.8 uH
 ]
 
 Therefore, the minimum calculated inductance required for the converter is:
 
 [
-L_{min} = 13.8\mu H
+L_{min} = 13.8 uH
 ]
 
 ---
@@ -642,7 +655,7 @@ In practical designs, a standard inductor value larger than the theoretical mini
 Based on these considerations, a standard value of:
 
 [
-L = 56\mu H
+L = 56 uH
 ]
 
 was selected.
