@@ -673,3 +673,165 @@ Switching Frequency| 100 kHz
 Application| Boost Converter Energy Storage Element
 
 The selected 56 µH inductor provides adequate energy storage, reduced current ripple, and reliable operation for the 12 V DC output power stage.
+
+PWM Source Configuration
+
+Objective
+
+A PWM (Pulse Width Modulation) source is used to drive the gate of the N-channel MOSFET in the boost converter. By controlling the MOSFET switching interval, the converter regulates the transfer of energy from the inductor to the output.
+
+---
+
+PWM Parameters
+
+Parameter| Value
+Initial Voltage (Vinitial)| 0 V
+ON Voltage (Von)| 10 V
+Delay Time (Tdelay)| 0 s
+Rise Time (Trise)| 100 ns
+Fall Time (Tfall)| 100 ns
+ON Time (Ton)| 2.6 µs
+Period (Tperiod)| 10 µs
+
+---
+
+Parameter Description
+
+Initial Voltage (Vinitial)
+
+When the PWM signal is in the OFF state, the MOSFET gate voltage remains at:
+
+[
+V_{initial}=0V
+]
+
+This keeps the MOSFET turned OFF.
+
+---
+
+ON Voltage (Von)
+
+When the PWM signal is in the ON state, the MOSFET gate receives:
+
+[
+V_{on}=10V
+]
+
+This voltage is sufficient to drive the MOSFET into conduction.
+
+---
+
+Delay Time (Tdelay)
+
+[
+T_{delay}=0s
+]
+
+The PWM waveform begins immediately at the start of the simulation.
+
+---
+
+Rise Time (Trise)
+
+[
+T_{rise}=100ns
+]
+
+This is the time required for the PWM signal to transition from 0 V to 10 V.
+
+---
+
+Fall Time (Tfall)
+
+[
+T_{fall}=100ns
+]
+
+This is the time required for the PWM signal to transition from 10 V to 0 V.
+
+---
+
+ON Time (Ton)
+
+[
+T_{on}=2.6 us
+]
+
+The MOSFET remains ON for 2.6 µs during each switching cycle, allowing the inductor to store energy.
+
+---
+
+Switching Period (Tperiod)
+
+[
+T_{period}=10 us
+]
+
+One complete PWM cycle lasts 10 µs.
+
+---
+
+Switching Frequency
+
+The switching frequency is calculated using:
+
+[
+f=1/T
+]
+
+Substituting:
+
+[
+f=1/10 us
+]
+
+[
+f=100,000Hz
+]
+
+[
+f=100kHz
+]
+
+Therefore, the boost converter operates at a switching frequency of 100 kHz.
+
+---
+
+Duty Cycle
+
+The duty cycle is calculated as:
+
+[
+D=T_on/T_period
+]
+
+[
+D= 2.6 us/10 us
+]
+
+[
+D=0.26
+]
+
+[
+D=26%
+]
+
+This means the MOSFET remains ON for 26% of each switching cycle and OFF for the remaining 74%.
+
+---
+
+Function in the Boost Converter
+
+During the ON interval:
+
+- The MOSFET conducts.
+- Energy is stored in the inductor magnetic field.
+
+During the OFF interval:
+
+- The MOSFET turns OFF.
+- The inductor releases stored energy through the Schottky diode.
+- Energy is transferred to the output capacitor and load.
+
+This switching process repeats at 100 kHz to regulate the converter output voltage.
