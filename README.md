@@ -835,3 +835,366 @@ During the OFF interval:
 - Energy is transferred to the output capacitor and load.
 
 This switching process repeats at 100 kHz to regulate the converter output voltage.
+
+MOSFET Selection
+
+Objective
+
+The MOSFET acts as the primary switching device in the boost converter. It is controlled by the PWM source and enables the periodic storage and transfer of energy through the inductor.
+
+---
+
+MOSFET Selection Guideline
+
+The choice between an N-channel and P-channel MOSFET depends on the switching configuration.
+
+In this design, the MOSFET is placed between the inductor and ground, which is commonly referred to as low-side switching.
+
+Since the source terminal remains near ground potential, an N-channel MOSFET can be driven easily using a positive gate voltage from the PWM source.
+
+Advantages of low-side switching include:
+
+- Simpler gate drive circuitry
+- Lower conduction losses
+- Better switching performance
+- Wide availability of high-performance N-channel MOSFETs
+
+Therefore, an N-channel MOSFET was selected.
+
+---
+
+Selected Device
+
+Parameter| Value
+Part Number| BSB012N03LX3
+Device Type| N-Channel MOSFET
+Application| Low-Side Switch in Boost Converter
+
+---
+
+Key Datasheet Parameters
+
+Parameter| Value
+Drain-Source Voltage (VDS)| 30 V
+Continuous Drain Current (ID)| 180 A
+ON-State Resistance (RDS(on))| 1.2 mΩ
+Gate-Source Voltage (VGS)| ±20 V
+
+---
+
+Selection Justification
+
+Drain-Source Voltage Rating
+
+The MOSFET must withstand the voltage present across the switch during operation.
+
+A common design practice is to select a MOSFET with a voltage rating significantly higher than the expected operating voltage.
+
+[
+V_{DS} = 30V
+]
+
+This exceeds the converter output voltage by a comfortable margin and provides protection against switching transients and voltage spikes.
+
+---
+
+ON-State Resistance
+
+The selected MOSFET has:
+
+[
+R_DS(on) = 1.2 mOhm
+]
+
+A low ON-state resistance minimizes conduction losses:
+
+[
+P = I^2R
+]
+
+Lower conduction loss results in:
+
+- Improved efficiency
+- Reduced heat generation
+- Better overall converter performance
+
+---
+
+Drain Current Rating
+
+The MOSFET is rated for:
+
+[
+I_D = 180A
+]
+
+This rating is substantially higher than the required load current, providing a large operating margin and ensuring reliable operation within the device's safe operating limits.
+
+---
+
+Gate-Source Voltage Rating
+
+The MOSFET has a maximum gate-source voltage rating of:
+
+[
+V_GS(max) = pm20V
+]
+
+The PWM source provides a gate drive voltage of:
+
+[
+V_{GS} = 10V
+]
+
+which is safely within the allowable limit and sufficient to fully enhance the MOSFET.
+
+---
+
+Function in the Boost Converter
+
+MOSFET ON
+
+- Gate receives 10 V from the PWM source.
+- MOSFET conducts.
+- Current flows through the inductor.
+- Energy is stored in the magnetic field.
+
+MOSFET OFF
+
+- Gate voltage returns to 0 V.
+- MOSFET stops conducting.
+- The inductor releases stored energy.
+- Current flows through the Schottky diode to the output capacitor and load.
+
+This switching process enables the converter to produce a regulated output voltage greater than the input voltage.
+
+---
+
+Final Selection
+
+The BSB012N03LX3 N-channel MOSFET satisfies the voltage, current, gate-drive, and efficiency requirements of the boost converter while providing significant design margin for reliable operation.
+
+Schottky Diode Selection
+
+Objective
+
+The Schottky diode provides a current path for the inductor when the MOSFET turns OFF.
+
+During the OFF interval of the switching cycle, the energy stored in the inductor is transferred through the diode to the output capacitor and load.
+
+Therefore, the diode must be capable of:
+
+- Handling the output current.
+- Operating at high switching frequencies.
+- Minimizing conduction losses.
+- Recovering quickly during switching transitions.
+
+---
+
+Selected Device
+
+Parameter| Value
+Part Number| RBR3MM40B
+Device Type| Schottky Barrier Rectifier
+Application| Boost Converter Freewheeling Diode
+
+---
+
+Why a Schottky Diode?
+
+A conventional silicon diode is generally not preferred in high-frequency switching converters because it exhibits:
+
+- Higher forward voltage drop
+- Reverse recovery losses
+- Increased switching losses
+
+A Schottky diode offers:
+
+- Lower forward voltage drop
+- Faster switching response
+- Negligible reverse recovery time
+- Improved converter efficiency
+
+For these reasons, a Schottky diode was selected for the boost converter stage.
+
+---
+
+Key Datasheet Parameters
+
+Parameter| Value
+Reverse Voltage Rating (VRRM)| 40 V
+Average Forward Current (IF)| 3 A
+Diode Type| Schottky
+
+---
+
+Selection Justification
+
+Reverse Voltage Rating
+
+The diode must withstand the output voltage when it is reverse biased.
+
+A common design practice is to select a reverse voltage rating significantly higher than the expected output voltage.
+
+[
+V_{RRM}=40V
+]
+
+Since the converter output voltage is approximately:
+
+[
+V_{OUT}=12V
+]
+
+the selected diode provides more than three times the required voltage rating, ensuring reliable operation and protection against switching transients.
+
+---
+
+Forward Current Rating
+
+The diode is rated for:
+
+[
+I_F=3A
+]
+
+The converter load current is approximately:
+
+[
+I_{LOAD}=1.5A
+]
+
+Therefore, the diode current rating is approximately twice the required load current, providing sufficient operating margin and improved reliability.
+
+---
+
+Low Forward Voltage Drop
+
+A Schottky diode typically exhibits a forward voltage drop in the range of:
+
+[
+0.2V - 0.5V
+]
+
+which is significantly lower than a conventional silicon diode.
+
+Lower forward voltage drop results in:
+
+- Reduced power dissipation
+- Improved efficiency
+- Lower device temperature
+
+The power loss across the diode is:
+
+[
+P_D = V_F×I_F
+]
+
+Reducing V_F directly reduces conduction losses.
+
+---
+
+High-Speed Switching Performance
+
+The boost converter operates at:
+
+[
+f_s = 100kHz
+]
+
+At this frequency, reverse recovery losses become important.
+
+Schottky diodes have extremely small reverse recovery times, making them well suited for high-frequency switching applications.
+
+This minimizes switching losses and improves overall converter efficiency.
+
+---
+
+Function in the Boost Converter
+
+MOSFET ON
+
+- MOSFET conducts.
+- Inductor stores energy.
+- Diode becomes reverse biased.
+- Output capacitor supplies the load.
+
+MOSFET OFF
+
+- MOSFET stops conducting.
+- Inductor polarity reverses.
+- Diode becomes forward biased.
+- Stored energy is transferred to the output capacitor and load.
+
+This process enables the converter to boost the input voltage and maintain a regulated output.
+
+---
+
+Final Selection
+
+The RBR3MM40B Schottky diode was selected because it provides:
+
+- Adequate reverse voltage margin.
+- Sufficient current carrying capability.
+- Low forward voltage drop.
+- Excellent high-frequency switching performance.
+
+These characteristics make it suitable for use as the freewheeling diode in the 12 V, 2 A boost converter.
+
+Output Capacitor Selection
+
+Objective
+The output capacitor reduces the voltage ripple produced by the switching operation of the boost converter and provides energy to the load during the MOSFET ON interval.
+Since the output voltage regulation depends on the switching duty cycle, the capacitor value is selected based on the allowable output ripple voltage, switching frequency, load current, and duty cycle.
+
+Capacitor Selection
+
+The required output capacitance can be estimated using:
+
+I_out×D/f_s×∆V_out
+
+Where:
+C = Output Capacitance (F)
+I_out = Output Current (A)
+D = Duty Cycle
+f_s = Switching Frequency (Hz)
+∆V_out = Allowable Output Ripple Voltage (V)
+Design Parameters
+Parameter
+Value
+Output Current (I_ouy)
+1.5 A
+Duty Cycle (D)
+0.26
+Switching Frequency (f_s)
+100 kHz
+Allowable Ripple Voltage (∆V_out)
+18 mV
+Calculation
+The nearest standard capacitor value is:
+
+220 uF
+
+Voltage Rating Selection
+
+The converter output voltage is approximately:
+
+V_out=12 V
+
+To provide sufficient design margin against ripple, transient voltages, and component tolerances, a capacitor voltage rating of:
+
+25 V
+
+was selected.
+
+Final Selection
+Parameter
+Value
+Capacitance
+220 µF
+Voltage Rating
+25 V
+Application
+Boost Converter Output Filter
+
+The selected 220 µF / 25 V capacitor provides adequate energy storage and maintains a low output ripple voltage while supporting stable operation of the 12 V, 1.5 A boost converter
