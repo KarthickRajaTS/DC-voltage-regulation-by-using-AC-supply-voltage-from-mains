@@ -670,7 +670,7 @@ Parameter| Value <br>
 Calculated Inductance| 13.8 µH <br>
 Selected Inductance| 56 µH <br>
 Switching Frequency| 100 kHz <br>
-Application| Boost Converter Energy Storage Element < br>
+Application| Boost Converter Energy Storage Element <br>
 
 The selected 56 µH inductor provides adequate energy storage, reduced current ripple, and reliable operation for the 12 V DC output power stage.
 
@@ -1021,10 +1021,10 @@ For these reasons, a Schottky diode was selected for the boost converter stage.
 
 Key Datasheet Parameters
 
-Parameter| Value
-Reverse Voltage Rating (VRRM)| 40 V
-Average Forward Current (IF)| 3 A
-Diode Type| Schottky
+Parameter| Value <br>
+Reverse Voltage Rating (VRRM)| 40 V <br>
+Average Forward Current (IF)| 3 A <br>
+Diode Type| Schottky <br>
 
 ---
 
@@ -1162,7 +1162,7 @@ f_s = Switching Frequency (Hz) <br>
 
 Design Parameters 
 
-Parameters Value
+Parameters Value <br>
 Output Current (I_out) 2 A <br>
 Duty Cycle (D) 0.26 <br>
 Switching Frequency (f_s) 100 kHz <br>
@@ -1222,7 +1222,7 @@ Capacitance 10 µF <br>
 Type: Ceramic Capacitor <br>
 
 Application <br>
-High-Frequency OutputBypass <br>
+High-Frequency Output bypass <br>
 
 Selection Justification
 Ceramic capacitors exhibit:<br>
