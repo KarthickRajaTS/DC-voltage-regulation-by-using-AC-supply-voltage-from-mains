@@ -31,13 +31,13 @@ Design Objectives
 
 Target Specifications
 
-Parameter| Value
-Input Voltage| 247 V AC RMS
-Input Frequency| 50 Hz
-Output Voltage| 12 V DC
-Output Current| 2 A
-Output Power| 24 W
-Simulation Platform| LTSpice
+Parameter| Value <br>
+Input Voltage| 247 V AC RMS <br>
+Input Frequency| 50 Hz <br>
+Output Voltage| 12 V DC <br>
+Output Current| 2 A <br>
+Output Power| 24 W <br>
+Simulation Platform| LTSpice <br>
 
 ---
 
@@ -137,17 +137,17 @@ Design Methodology
 
 The design process was divided into the following stages:
 
-1. Transformer Modeling and Turns Ratio Calculation
-2. Magnetizing Inductance Selection
-3. Bridge Rectifier Design
-4. Filter Capacitor Sizing
-5. Boost Converter Topology Selection
-6. Inductor Design
-7. PWM Duty Cycle Optimization
-8. Output Capacitor Selection
-9. Ripple Voltage Analysis
-10. Load Regulation Verification
-11. Current and Power Flow Analysis
+1. Transformer Modeling and Turns Ratio Calculation <br>
+2. Magnetizing Inductance Selection <br>
+3. Bridge Rectifier Design <br>
+4. Filter Capacitor Sizing <br>
+5. Boost Converter Topology Selection <br>
+6. Inductor Design <br>
+7. PWM Duty Cycle Optimization <br>
+8. Output Capacitor Selection <br>
+9. Ripple Voltage Analysis <br> 
+10. Load Regulation Verification <br>
+11. Current and Power Flow Analysis <br>
 
 ---
 
@@ -183,10 +183,10 @@ The transformer stage provides galvanic isolation from the AC mains and steps do
 Design Specifications
 
 Parameter| Value
-Input Voltage| 247 V AC RMS
-Output Voltage| 9 V AC RMS
-Output Current| 2 A RMS
-Frequency| 50 Hz
+Input Voltage| 247 V AC RMS <br>
+Output Voltage| 9 V AC RMS <br>
+Output Current| 2 A RMS <br>
+Frequency| 50 Hz <br>
 
 The input voltage was assumed to be 247 V RMS to account for practical variations in the distribution network.
 
@@ -204,12 +204,12 @@ L1/L2 = (N1/N2)²
 
 Where:
 
-- Vp = Primary Voltage
-- Vs = Secondary Voltage
-- N1 = Primary Turns
-- N2 = Secondary Turns
-- L1 = Primary Inductance
-- L2 = Secondary Inductance
+- Vp = Primary Voltage <br>
+- Vs = Secondary Voltage <br>
+- N1 = Primary Turns <br>
+- N2 = Secondary Turns <br>
+- L1 = Primary Inductance <br>
+- L2 = Secondary Inductance <br>
 
 ---
 
@@ -247,17 +247,17 @@ L1 = Vp / (2πfIm)
 
 Where:
 
-- Vp = 247 V
-- f = 50 Hz
-- Im = Magnetizing Current
+- Vp = 247 V <br>
+- f = 50 Hz <br>
+- Im = Magnetizing Current <br>
 
 The no-load magnetizing current was assumed to be approximately 30 mA, which falls within a practical range for a transformer of this size.
 
 Substituting the values:
 
-L1 = 247 / (2 × π × 50 × 0.03)
+L1 = 247 / (2 × π × 50 × 0.03) <br>
 
-L1 ≈ 26 H
+L1 ≈ 26 H <br>
 
 Therefore,
 
@@ -273,13 +273,13 @@ L1/L2 = 729
 
 Substituting L1 = 26 H:
 
-26/L2 = 729
+26/L2 = 729 <br>
 
-L2 = 26/729
+L2 = 26/729 <br>
 
-L2 = 0.0356 H
+L2 = 0.0356 H <br>
 
-L2 ≈ 36 mH
+L2 ≈ 36 mH <br>
 
 Therefore,
 
@@ -310,9 +310,9 @@ To account for these practical effects, winding resistance was included in the s
 
 Selected Values
 
-Winding| Resistance
-Primary| 0.1 Ω
-Secondary| 0.05 Ω
+Winding| Resistance <br>
+Primary| 0.1 Ω <br>
+Secondary| 0.05 Ω <br>
 
 Justification
 
@@ -335,15 +335,15 @@ The chosen values are approximations intended to model practical transformer beh
 
 Final Transformer Parameters
 
-Parameter| Value
-Primary Inductance (L1)| 26 H
-Secondary Inductance (L2)| 36 mH
-Coupling Coefficient| 0.995
-Primary Resistance| 0.1 Ω
-Secondary Resistance| 0.05 Ω
-Input Voltage| 247 V AC RMS
-Output Voltage| 9 V AC RMS
-Output Current| 2 A RMS
+Parameter| Value <br>
+Primary Inductance (L1)| 26 H <br>
+Secondary Inductance (L2)| 36 mH <br>
+Coupling Coefficient| 0.995 <br>
+Primary Resistance| 0.1 Ω <br>
+Secondary Resistance| 0.05 Ω <br>
+Input Voltage| 247 V AC RMS <br>
+Output Voltage| 9 V AC RMS <br>
+Output Current| 2 A RMS <br>
 
 The resulting transformer model was used as the front-end isolation and voltage step-down stage for the AC-DC converter simulation.
 
@@ -374,10 +374,10 @@ This configuration enables both positive and negative half cycles of the AC wave
 
 Diode Selection
 
-Parameter| Value
-Part Number| RFN5BM6S
-Device Type| Silicon Rectifier Diode
-Application| Full-Wave Bridge Rectifier
+Parameter| Value <br>
+Part Number| RFN5BM6S <br>
+Device Type| Silicon Rectifier Diode <br>
+Application| Full-Wave Bridge Rectifier <br>
 
 ---
 
@@ -473,10 +473,10 @@ C = I_L/f_ripple×∆V
 
 Where:
 
-- C = Capacitance (F)
-- I_L = Load Current (A)
-- f_{ripple} = Ripple Frequency (Hz)
-- \Delta V = Allowable Ripple Voltage (V)
+- C = Capacitance (F) <br>
+- I_L = Load Current (A) <br>
+- f_{ripple} = Ripple Frequency (Hz) <br>
+- \Delta V = Allowable Ripple Voltage (V) <br>
 
 For a full-wave bridge rectifier operating from a 50 Hz mains supply:
 
@@ -490,9 +490,9 @@ Initial Calculation
 
 Assuming:
 
-- Load Current = 2 A
-- Ripple Frequency = 100 Hz
-- Allowable Ripple Voltage = 0.5 V
+- Load Current = 2 A <br>
+- Ripple Frequency = 100 Hz <br>
+- Allowable Ripple Voltage = 0.5 V <br>
 
 [
 C = 2/(100×0.5)
@@ -520,9 +520,9 @@ Allowing a ripple voltage of approximately 3 V significantly reduces the require
 
 Assuming:
 
-- Load Current = 2 A
-- Ripple Frequency = 100 Hz
-- Allowable Ripple Voltage = 3 V
+- Load Current = 2 A <br>
+- Ripple Frequency = 100 Hz <br>
+- Allowable Ripple Voltage = 3 V <br>
 
 [
 C = 2/(100*3)
@@ -562,12 +562,12 @@ This provides sufficient safety margin while ensuring reliable operation.
 
 Final Capacitor Selection
 
-Parameter| Value
-Capacitance| 6800 µF
-Voltage Rating| 25 V
-Ripple Frequency| 100 Hz
-Allowable Ripple Voltage| 3 V
-Application| Rectifier Output Filter Capacitor
+Parameter| Value <br>
+Capacitance| 6800 µF <br>
+Voltage Rating| 25 V <br>
+Ripple Frequency| 100 Hz <br>
+Allowable Ripple Voltage| 3 V <br>
+Application| Rectifier Output Filter Capacitor <br>
 
 The selected 6800 µF / 25 V capacitor provides adequate energy storage, reduces rectifier ripple, and supplies a stable input source for the boost converter stage while maintaining a practical component size.
 
@@ -591,11 +591,11 @@ L = Vin×D/(∆I_L*f_s)
 
 Where:
 
-- L = Inductance (H)
-- V_{in} = Input Voltage (V)
-- D = Duty Cycle
-- ∆I_L = Inductor Current Ripple (A)
-- f_s = Switching Frequency (Hz)
+- L = Inductance (H) <br>
+- V_{in} = Input Voltage (V) <br>
+- D = Duty Cycle <br>
+- ∆I_L = Inductor Current Ripple (A) <br>
+- f_s = Switching Frequency (Hz) <br>
 
 ---
 
@@ -666,11 +666,11 @@ The chosen inductance is approximately four times the minimum calculated value, 
 
 Final Inductor Selection
 
-Parameter| Value
-Calculated Inductance| 13.8 µH
-Selected Inductance| 56 µH
-Switching Frequency| 100 kHz
-Application| Boost Converter Energy Storage Element
+Parameter| Value <br>
+Calculated Inductance| 13.8 µH <br>
+Selected Inductance| 56 µH <br>
+Switching Frequency| 100 kHz <br>
+Application| Boost Converter Energy Storage Element < br>
 
 The selected 56 µH inductor provides adequate energy storage, reduced current ripple, and reliable operation for the 12 V DC output power stage.
 
@@ -684,14 +684,14 @@ A PWM (Pulse Width Modulation) source is used to drive the gate of the N-channel
 
 PWM Parameters
 
-Parameter| Value
-Initial Voltage (Vinitial)| 0 V
-ON Voltage (Von)| 10 V
-Delay Time (Tdelay)| 0 s
-Rise Time (Trise)| 100 ns
-Fall Time (Tfall)| 100 ns
-ON Time (Ton)| 2.6 µs
-Period (Tperiod)| 10 µs
+Parameter| Value <br>
+Initial Voltage (Vinitial)| 0 V <br>
+ON Voltage (Von)| 10 V <br>
+Delay Time (Tdelay)| 0 s <br>
+Rise Time (Trise)| 100 ns <br>
+Fall Time (Tfall)| 100 ns <br>
+ON Time (Ton)| 2.6 µs <br>
+Period (Tperiod)| 10 µs <br>
 
 ---
 
@@ -865,20 +865,20 @@ Therefore, an N-channel MOSFET was selected.
 
 Selected Device
 
-Parameter| Value
-Part Number| BSB012N03LX3
-Device Type| N-Channel MOSFET
-Application| Low-Side Switch in Boost Converter
+Parameter| Value <br>
+Part Number| BSB012N03LX3 <br>
+Device Type| N-Channel MOSFET <br>
+Application| Low-Side Switch in Boost Converter <br>
 
 ---
 
 Key Datasheet Parameters
 
-Parameter| Value
-Drain-Source Voltage (VDS)| 30 V
-Continuous Drain Current (ID)| 180 A
-ON-State Resistance (RDS(on))| 1.2 mΩ
-Gate-Source Voltage (VGS)| ±20 V
+Parameter| Value <br>
+Drain-Source Voltage (VDS)| 30 V <br>
+Continuous Drain Current (ID)| 180 A <br>
+ON-State Resistance (RDS(on))| 1.2 mΩ <br>
+Gate-Source Voltage (VGS)| ±20 V <br>
 
 ---
 
@@ -1061,7 +1061,7 @@ I_F=3A
 The converter load current is approximately:
 
 [
-I_{LOAD}=1.5A
+I_{LOAD}=2A
 ]
 
 Therefore, the diode current rating is approximately twice the required load current, providing sufficient operating margin and improved reliability.
@@ -1151,26 +1151,30 @@ Capacitor Selection
 
 The required output capacitance can be estimated using:
 
-I_out×D/f_s×∆V_out
+C_out=I_out×D/f_s×∆V_out
 
 Where:
-C = Output Capacitance (F)
-I_out = Output Current (A)
-D = Duty Cycle
-f_s = Switching Frequency (Hz)
-∆V_out = Allowable Output Ripple Voltage (V)
-Design Parameters
-Parameter
-Value
-Output Current (I_ouy)
-1.5 A
-Duty Cycle (D)
-0.26
-Switching Frequency (f_s)
-100 kHz
-Allowable Ripple Voltage (∆V_out)
-18 mV
+C = Output Capacitance (F) <br>
+I_out = Output Current (A) <br>
+D = Duty Cycle <br>
+f_s = Switching Frequency (Hz) <br>
+∆V_out = Allowable Output Ripple Voltage (V) <br>
+
+Design Parameters 
+
+Parameters Value
+Output Current (I_out) 2 A <br>
+Duty Cycle (D) 0.26 <br>
+Switching Frequency (f_s) 100 kHz <br>
+Allowable Ripple Voltage (∆V_out) 
+24mV <br>
+
 Calculation
+
+C_out=2×0.26/(100000×0.024) <br>
+     =0.000216 <br>
+     =216 uF <br>
+
 The nearest standard capacitor value is:
 
 220 uF
@@ -1188,13 +1192,13 @@ To provide sufficient design margin against ripple, transient voltages, and comp
 was selected.
 
 Final Selection
-Parameter
-Value
-Capacitance
-220 µF
-Voltage Rating
-25 V
+
+Parameter Value <br>
+Capacitance 220 µF <br>
+Voltage Rating 25 V <br>
+
 Application
+
 Boost Converter Output Filter
 
-The selected 220 µF / 25 V capacitor provides adequate energy storage and maintains a low output ripple voltage while supporting stable operation of the 12 V, 1.5 A boost converter
+The selected 220 µF / 25 V capacitor provides adequate energy storage and maintains a low output ripple voltage while supporting stable operation of the 12 V, 2 A boost converter
