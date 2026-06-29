@@ -1249,3 +1249,26 @@ Component Function <br>
 10 µF Ceramic Capacitor High-frequency noise suppression and transient filtering <br>
 
 The combination of both capacitors provides effective output filtering across a wide frequency range and improves the quality of the regulated 12 V DC output.
+
+Load resistor calculation
+
+## Load Resistor, Load Voltage, and Load Current Relationship
+
+Given:
+- Load Voltage, ( V_L = 12 V ) <br>
+- Load Current, ( I_L = 2 A ) <br>
+
+Using Ohm’s Law:
+
+\[
+R_L = V_L/I_L
+\]
+
+Substituting values:
+
+\[
+R_L = 12/2 = 6 Ohms
+\]
+
+### Result: <br>
+A **6 Ω resistor** is connected as the load to obtain 12 V at 2 A.
