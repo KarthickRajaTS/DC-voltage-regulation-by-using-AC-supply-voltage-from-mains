@@ -1234,12 +1234,15 @@ These characteristics allow the capacitor to suppress high-frequency switching n
 
 By placing the 10 µF ceramic capacitor in parallel with the 220 µF electrolytic capacitor:<br>
 Low-frequency ripple is reduced by the electrolytic capacitor.<br>
+
 High-frequency ripple is reduced by the ceramic capacitor.<br>
+
 Output voltage stability is improved.
 Transient response is enhanced.<br>
 
-Final Output Filter Network
-Component Function
+Final Output Filter Network <br>
+
+Component Function <br>
 220 µF Electrolytic Capacitor Bulk energy storage and low-frequency ripple reduction
 10 µF Ceramic Capacitor High-frequency noise suppression and transient filtering
 
