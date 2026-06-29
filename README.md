@@ -993,10 +993,10 @@ Therefore, the diode must be capable of:
 
 Selected Device
 
-Parameter| Value
-Part Number| RBR3MM40B
-Device Type| Schottky Barrier Rectifier
-Application| Boost Converter Freewheeling Diode
+Parameter| Value <br>
+Part Number| RBR3MM40B <br>
+Device Type| Schottky Barrier Rectifier <br>
+Application| Boost Converter Freewheeling Diode <br>
 
 ---
 
