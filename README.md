@@ -1272,3 +1272,11 @@ R_L = 12/2 = 6 Ohms
 
 ### Result: <br>
 A **6 Ω resistor** is connected as the load to obtain 12 V at 2 A.
+
+
+Output
+
+Finally the simulation shows the result 12 V 2A and the output graph is given below
+
+## Output graph
+![Output graph](IMG-20260625-WA0015.jpg)
